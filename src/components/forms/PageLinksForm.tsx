@@ -10,10 +10,10 @@ import Image from "next/image";
 import savePageLinks from "@/actions/savePageLinks";
 import toast from "react-hot-toast";
 
-const PageLinksForm = ({ page, user }) => {
+const PageLinksForm = ({ page }) => {
   const [links, setLinks] = useState(page.links || []);
 
-  const save = async (formData) => {
+  const save = async () => {
     await savePageLinks(links);
     toast.success("Succesfully Updated");
   };
@@ -23,7 +23,7 @@ const PageLinksForm = ({ page, user }) => {
       // Update the state with the new icon
       setLinks((prevLinks) => {
         const newLinks = [...prevLinks];
-        newLinks.forEach((link, index) => {
+        newLinks.forEach((link) => {
           if (link.key === linkKeyForUpload) {
             link.icon = profileImageUrl;
           }

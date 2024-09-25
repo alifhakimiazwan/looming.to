@@ -2,7 +2,7 @@
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import mongoose, { trusted } from "mongoose";
+import mongoose from "mongoose";
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import grabUsername from "@/actions/grabUsername";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const UsernameForm = ({ desiredUsername }) => {
   const router = useRouter();

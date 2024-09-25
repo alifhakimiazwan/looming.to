@@ -8,8 +8,6 @@ import { Page } from "@/models/Page";
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
 
-  const page = await Page.findOne({ owner: session?.user?.email });
-
   return (
     <div>
       {/* Navbar Section */}
