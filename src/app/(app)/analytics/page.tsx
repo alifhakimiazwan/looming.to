@@ -11,12 +11,12 @@ import Image from "next/image";
 import { isToday } from "date-fns";
 
 const AnalyticsPage = async () => {
-  mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI);
   const session = await getServerSession(authOptions);
   if (!session) {
     redirect("/");
   }
-  const page = await Page.findOne({ owner: session.user.email });
+  const page = await Page.findOne({ owner: session?.user?.email });
   const groupViews = await Event.aggregate([
     {
       $match: {

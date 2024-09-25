@@ -11,6 +11,7 @@ const options = {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
+    serverSelectionTimeoutMS: 20000,
   },
 };
 
