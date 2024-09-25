@@ -10,7 +10,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #0a0a0a;
   }
 }
 
@@ -24,4 +24,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.sortable-ghost {
+  opacity: 0.2;
+}
+/* Custom class for the tooltip text */
+.custom-tooltip .tooltip-content {
+  font-size: 0.75rem; /* Equivalent to text-xs */
+  padding: 0.25rem; /* Optional: Adjust padding for better layout */
 }
