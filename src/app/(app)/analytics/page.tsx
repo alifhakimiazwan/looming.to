@@ -1,5 +1,4 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import SectionBox from "@/components/layout/SectionBox";
 import { getServerSession } from "next-auth";
 import mongoose from "mongoose";
 import React from "react";
@@ -67,7 +66,7 @@ const AnalyticsPage = async () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     {!link.icon && (
-                      <img
+                      <Image
                         src={"profile-icon2.jpg"} // Placeholder for profile icon
                         alt="Profile Icon"
                         className="rounded-full" // Circular icon

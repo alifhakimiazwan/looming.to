@@ -3,7 +3,6 @@ import React from "react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import LogoutButton from "./buttons/LogoutButton";
-import { redirect } from "next/navigation";
 import { Page } from "@/models/Page";
 
 const Navbar = async () => {
