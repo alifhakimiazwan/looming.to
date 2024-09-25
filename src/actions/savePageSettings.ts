@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
 
-const savePageSettings = async (formData) => {
+const savePageSettings = async (formData: FormData) => {
   mongoose.connect(process.env.MONGODB_URI);
   const session = await getServerSession(authOptions);
 
