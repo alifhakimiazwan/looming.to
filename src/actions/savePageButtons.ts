@@ -2,9 +2,9 @@
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 import { Page } from "@/models/Page";
-import { authOptions } from "@/app/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-const savePageButtons = async (formData) => {
+const savePageButtons = async (formData: FormData) => {
   mongoose.connect(process.env.MONGODB_URI);
   const session = await getServerSession(authOptions);
   if (session) {

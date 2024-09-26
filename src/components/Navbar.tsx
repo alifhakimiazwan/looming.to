@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import LogoutButton from "./buttons/LogoutButton";
 
 const Navbar = async () => {

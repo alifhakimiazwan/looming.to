@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/db";
+
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET, // Ensure this is set in your .env.local
   adapter: MongoDBAdapter(clientPromise), // Pass your MongoDB client here
