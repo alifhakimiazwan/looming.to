@@ -22,29 +22,30 @@ export default async function AppLayout({
   }
 
   // Connect to MongoDB
-  mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI);
   const page = await Page.findOne({ owner: session.user?.email });
 
   return (
     <html lang="en">
       <body className={`${inter.className} bg-white`}>
         <Toaster />
-        <div className="relative flex min-h-screen">
+        <div className="flex min-h-screen relative">
           {page && (
             <>
-              <div className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20">
+              {/* Sidebar for larger screens */}
+              <div className="hidden lg:block fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20">
                 <Sidebar user={session?.user} page={page} />
               </div>
-              <div className="lg:hidden absolute top-0 right-0 p-6 z-20">
-                <Sidebar user={session?.user} page={page} />
+
+              {/* Mobile Sidebar */}
+              <div className="fixed inset-0 z-30 transition-transform transform lg:hidden">
+                <Sidebar user={session?.user} page={page} mobile />
               </div>
             </>
           )}
-          <div
-            className={`flex-1 overflow-y-auto h-full ${page ? "ml-64" : ""}`}
-          >
-            {children}
-          </div>
+
+          {/* Main content area */}
+          <div className="flex-1 lg:ml-64">{children}</div>
         </div>
       </body>
     </html>
