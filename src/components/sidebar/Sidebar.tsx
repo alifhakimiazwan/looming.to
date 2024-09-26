@@ -13,7 +13,7 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Sidebar = ({ user, page }) => {
+const Sidebar = ({ user, page, mobile }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false); // Manage mobile sidebar state
 
@@ -23,22 +23,24 @@ const Sidebar = ({ user, page }) => {
   return (
     <>
       {/* Mobile Menu Button: Only visible on small screens */}
-      <div className="rounded-full p-1 bg-secondary shadow-lg sm:block md:hidden z-20 fixed top-4 right-4">
-        <button
-          className="flex items-center px-4 py-3 text-gray-700 hover:opacity-50 focus:outline-none"
-          onClick={toggleSidebar}
-        >
-          <FontAwesomeIcon
-            icon={isOpen ? faTimes : faBars}
-            className="w-6 h-6 text-white"
-          />
-        </button>
-      </div>
+      {mobile && (
+        <div className="rounded-full p-1 bg-secondary shadow-lg sm:block md:hidden z-20 fixed top-4 right-4">
+          <button
+            className="flex items-center px-4 py-3 text-gray-700 hover:opacity-50 focus:outline-none"
+            onClick={toggleSidebar}
+          >
+            <FontAwesomeIcon
+              icon={isOpen ? faTimes : faBars}
+              className="w-6 h-6 text-white"
+            />
+          </button>
+        </div>
+      )}
 
       {/* Overlay for dark background when sidebar is open on mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-10 lg:hidden"
+          className="fixed inset-0 bg-black opacity-50 z-10"
           onClick={toggleSidebar} // Clicking the overlay will close the sidebar
         ></div>
       )}

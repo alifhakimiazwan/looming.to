@@ -1,3 +1,4 @@
+// AppLayout.js
 import { Poppins } from "next/font/google";
 import "../globals.css";
 import Sidebar from "@/components/sidebar/Sidebar";
@@ -38,14 +39,14 @@ export default async function AppLayout({
               </div>
 
               {/* Mobile Sidebar */}
-              <div className="fixed inset-0 z-30 transition-transform transform lg:hidden">
+              <div className="lg:hidden">
                 <Sidebar user={session?.user} page={page} mobile />
               </div>
             </>
           )}
 
           {/* Main content area */}
-          <div className="flex-1 lg:ml-64">{children}</div>
+          <div className={`flex-1 lg:ml-64`}>{children}</div>
         </div>
       </body>
     </html>
