@@ -151,10 +151,7 @@ const LinksPage = ({ page, user }) => {
             ))}
           </div>
 
-          {/* Link Icons aligned horizontally for mobile */}
-          {/* Link Icons aligned horizontally for mobile */}
-          {/* Link Icons aligned horizontally for mobile */}
-          <div className="grid grid-cols-2 gap-4 p-2">
+          <div className="grid grid-cols-2 gap-6">
             {page.links.map((link) => (
               <Link
                 target="_blank"
@@ -168,28 +165,26 @@ const LinksPage = ({ page, user }) => {
                   page.uri
                 }
               >
-                <div className="flex flex-col justify-between rounded-lg shadow-lg bg-white p-4 w-48 h-48 transition-transform transform hover:scale-105">
+                <div className="flex flex-col justify-between rounded-lg shadow-lg bg-white p-3 w-40 h-40 transition-transform transform hover:scale-105">
                   {/* Icon Image */}
-                  <div className="w-16 h-16 flex-shrink-0">
-                    {link.icon && (
+                  <div className="w-12 h-12 flex-shrink-0">
+                    {link.icon ? (
                       <img
                         src={link.icon}
                         alt="icon"
                         className="w-full h-full rounded-full object-cover"
                       />
-                    )}
-
-                    {!link.icon && (
+                    ) : (
                       <FontAwesomeIcon
                         icon={faLink}
-                        className="text-secondary w-16 h-16 bg-gray-100 p-5 rounded-full"
+                        className="text-secondary w-12 h-12 bg-gray-100 p-4 rounded-full"
                       />
                     )}
                   </div>
                   {/* Text Content */}
                   <div className="mt-auto text-left">
-                    <h4 className="text-lg font-semibold">{link.title}</h4>
-                    <p className="text-sm">{link.subtitle}</p>
+                    <h4 className="text-base font-semibold">{link.title}</h4>
+                    <p className="text-xs">{link.subtitle}</p>
                   </div>
                 </div>
               </Link>
